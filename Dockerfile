@@ -1,4 +1,4 @@
-FROM php:8.2-fpm
+FROM php:8.4-fpm
 
 RUN apt-get update && apt-get install -y \
     nginx \
@@ -19,7 +19,7 @@ WORKDIR /var/www
 
 COPY . .
 
-RUN composer install --no-dev --optimize-autoloader
+RUN composer install --no-dev --optimize-autoloader --ignore-platform-reqs
 
 RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
 
