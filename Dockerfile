@@ -40,4 +40,4 @@ RUN echo 'server {\n\
 
 EXPOSE 80
 
-CMD service nginx start && php-fpm
+CMD php artisan config:clear && php artisan route:clear && php artisan migrate --force && service nginx start && php-fpm
